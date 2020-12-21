@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F25C6552590C31A0020BFC5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F25C6542590C31A0020BFC5 /* GoogleService-Info.plist */; };
+		2F5E8F722590B5FC003E9EC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E8F712590B5FC003E9EC5 /* AppDelegate.swift */; };
+		2F5E8F762590B5FC003E9EC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E8F752590B5FC003E9EC5 /* ViewController.swift */; };
+		2F5E8F792590B5FC003E9EC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E8F772590B5FC003E9EC5 /* Main.storyboard */; };
+		2F5E8F7B2590B5FD003E9EC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E8F7A2590B5FD003E9EC5 /* Assets.xcassets */; };
+		2F5E8F7E2590B5FD003E9EC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E8F7C2590B5FD003E9EC5 /* LaunchScreen.storyboard */; };
+		2F5E8F892590B5FD003E9EC5 /* SugarlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E8F882590B5FD003E9EC5 /* SugarlessTests.swift */; };
+		2F5E8F942590B5FD003E9EC5 /* SugarlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E8F932590B5FD003E9EC5 /* SugarlessUITests.swift */; };
+		58819876D6DBD6B8048730E0 /* Pods_Sugarless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D80740E019DB4025F278153 /* Pods_Sugarless.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F5E8F852590B5FD003E9EC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F5E8F662590B5FC003E9EC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F5E8F6D2590B5FC003E9EC5;
+			remoteInfo = Sugarless;
+		};
+		2F5E8F902590B5FD003E9EC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F5E8F662590B5FC003E9EC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F5E8F6D2590B5FC003E9EC5;
+			remoteInfo = Sugarless;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F25C6542590C31A0020BFC5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F5E8F6E2590B5FC003E9EC5 /* Sugarless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sugarless.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F5E8F712590B5FC003E9EC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2F5E8F752590B5FC003E9EC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2F5E8F782590B5FC003E9EC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2F5E8F7A2590B5FD003E9EC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F5E8F7D2590B5FD003E9EC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2F5E8F7F2590B5FD003E9EC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F5E8F842590B5FD003E9EC5 /* SugarlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F5E8F882590B5FD003E9EC5 /* SugarlessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarlessTests.swift; sourceTree = "<group>"; };
+		2F5E8F8A2590B5FD003E9EC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F5E8F8F2590B5FD003E9EC5 /* SugarlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F5E8F932590B5FD003E9EC5 /* SugarlessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarlessUITests.swift; sourceTree = "<group>"; };
+		2F5E8F952590B5FD003E9EC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D80740E019DB4025F278153 /* Pods_Sugarless.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sugarless.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C2F3C661F8C2D6EC91BE96A /* Pods-Sugarless.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sugarless.release.xcconfig"; path = "Target Support Files/Pods-Sugarless/Pods-Sugarless.release.xcconfig"; sourceTree = "<group>"; };
+		9C8290DD1231E8B43C6DAD7C /* Pods-Sugarless.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sugarless.debug.xcconfig"; path = "Target Support Files/Pods-Sugarless/Pods-Sugarless.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F5E8F6B2590B5FC003E9EC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58819876D6DBD6B8048730E0 /* Pods_Sugarless.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F5E8F812590B5FD003E9EC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F5E8F8C2590B5FD003E9EC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20555B0A399295A38DC46223 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D80740E019DB4025F278153 /* Pods_Sugarless.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F5E8F652590B5FC003E9EC5 = {
+			isa = PBXGroup;
+			children = (
+				2F5E8F702590B5FC003E9EC5 /* Sugarless */,
+				2F5E8F872590B5FD003E9EC5 /* SugarlessTests */,
+				2F5E8F922590B5FD003E9EC5 /* SugarlessUITests */,
+				2F5E8F6F2590B5FC003E9EC5 /* Products */,
+				878043AC1DC4CA2B40C61338 /* Pods */,
+				20555B0A399295A38DC46223 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2F5E8F6F2590B5FC003E9EC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F5E8F6E2590B5FC003E9EC5 /* Sugarless.app */,
+				2F5E8F842590B5FD003E9EC5 /* SugarlessTests.xctest */,
+				2F5E8F8F2590B5FD003E9EC5 /* SugarlessUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F5E8F702590B5FC003E9EC5 /* Sugarless */ = {
+			isa = PBXGroup;
+			children = (
+				2F5E8F712590B5FC003E9EC5 /* AppDelegate.swift */,
+				2F5E8F752590B5FC003E9EC5 /* ViewController.swift */,
+				2F5E8F772590B5FC003E9EC5 /* Main.storyboard */,
+				2F5E8F7A2590B5FD003E9EC5 /* Assets.xcassets */,
+				2F5E8F7C2590B5FD003E9EC5 /* LaunchScreen.storyboard */,
+				2F5E8F7F2590B5FD003E9EC5 /* Info.plist */,
+				2F25C6542590C31A0020BFC5 /* GoogleService-Info.plist */,
+			);
+			path = Sugarless;
+			sourceTree = "<group>";
+		};
+		2F5E8F872590B5FD003E9EC5 /* SugarlessTests */ = {
+			isa = PBXGroup;
+			children = (
+				2F5E8F882590B5FD003E9EC5 /* SugarlessTests.swift */,
+				2F5E8F8A2590B5FD003E9EC5 /* Info.plist */,
+			);
+			path = SugarlessTests;
+			sourceTree = "<group>";
+		};
+		2F5E8F922590B5FD003E9EC5 /* SugarlessUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2F5E8F932590B5FD003E9EC5 /* SugarlessUITests.swift */,
+				2F5E8F952590B5FD003E9EC5 /* Info.plist */,
+			);
+			path = SugarlessUITests;
+			sourceTree = "<group>";
+		};
+		878043AC1DC4CA2B40C61338 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C8290DD1231E8B43C6DAD7C /* Pods-Sugarless.debug.xcconfig */,
+				8C2F3C661F8C2D6EC91BE96A /* Pods-Sugarless.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F5E8F6D2590B5FC003E9EC5 /* Sugarless */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F5E8F982590B5FD003E9EC5 /* Build configuration list for PBXNativeTarget "Sugarless" */;
+			buildPhases = (
+				89BD9C950BC70F65FAA0988A /* [CP] Check Pods Manifest.lock */,
+				2F5E8F6A2590B5FC003E9EC5 /* Sources */,
+				2F5E8F6B2590B5FC003E9EC5 /* Frameworks */,
+				2F5E8F6C2590B5FC003E9EC5 /* Resources */,
+				6D8AF68461E1648E34421EAC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sugarless;
+			productName = Sugarless;
+			productReference = 2F5E8F6E2590B5FC003E9EC5 /* Sugarless.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F5E8F832590B5FD003E9EC5 /* SugarlessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F5E8F9B2590B5FD003E9EC5 /* Build configuration list for PBXNativeTarget "SugarlessTests" */;
+			buildPhases = (
+				2F5E8F802590B5FD003E9EC5 /* Sources */,
+				2F5E8F812590B5FD003E9EC5 /* Frameworks */,
+				2F5E8F822590B5FD003E9EC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F5E8F862590B5FD003E9EC5 /* PBXTargetDependency */,
+			);
+			name = SugarlessTests;
+			productName = SugarlessTests;
+			productReference = 2F5E8F842590B5FD003E9EC5 /* SugarlessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2F5E8F8E2590B5FD003E9EC5 /* SugarlessUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F5E8F9E2590B5FD003E9EC5 /* Build configuration list for PBXNativeTarget "SugarlessUITests" */;
+			buildPhases = (
+				2F5E8F8B2590B5FD003E9EC5 /* Sources */,
+				2F5E8F8C2590B5FD003E9EC5 /* Frameworks */,
+				2F5E8F8D2590B5FD003E9EC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F5E8F912590B5FD003E9EC5 /* PBXTargetDependency */,
+			);
+			name = SugarlessUITests;
+			productName = SugarlessUITests;
+			productReference = 2F5E8F8F2590B5FD003E9EC5 /* SugarlessUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F5E8F662590B5FC003E9EC5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					2F5E8F6D2590B5FC003E9EC5 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					2F5E8F832590B5FD003E9EC5 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 2F5E8F6D2590B5FC003E9EC5;
+					};
+					2F5E8F8E2590B5FD003E9EC5 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 2F5E8F6D2590B5FC003E9EC5;
+					};
+				};
+			};
+			buildConfigurationList = 2F5E8F692590B5FC003E9EC5 /* Build configuration list for PBXProject "Sugarless" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F5E8F652590B5FC003E9EC5;
+			productRefGroup = 2F5E8F6F2590B5FC003E9EC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F5E8F6D2590B5FC003E9EC5 /* Sugarless */,
+				2F5E8F832590B5FD003E9EC5 /* SugarlessTests */,
+				2F5E8F8E2590B5FD003E9EC5 /* SugarlessUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F5E8F6C2590B5FC003E9EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F5E8F7E2590B5FD003E9EC5 /* LaunchScreen.storyboard in Resources */,
+				2F25C6552590C31A0020BFC5 /* GoogleService-Info.plist in Resources */,
+				2F5E8F7B2590B5FD003E9EC5 /* Assets.xcassets in Resources */,
+				2F5E8F792590B5FC003E9EC5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F5E8F822590B5FD003E9EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F5E8F8D2590B5FD003E9EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6D8AF68461E1648E34421EAC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sugarless/Pods-Sugarless-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sugarless/Pods-Sugarless-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sugarless/Pods-Sugarless-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89BD9C950BC70F65FAA0988A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sugarless-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F5E8F6A2590B5FC003E9EC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F5E8F762590B5FC003E9EC5 /* ViewController.swift in Sources */,
+				2F5E8F722590B5FC003E9EC5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F5E8F802590B5FD003E9EC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F5E8F892590B5FD003E9EC5 /* SugarlessTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F5E8F8B2590B5FD003E9EC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F5E8F942590B5FD003E9EC5 /* SugarlessUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F5E8F862590B5FD003E9EC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F5E8F6D2590B5FC003E9EC5 /* Sugarless */;
+			targetProxy = 2F5E8F852590B5FD003E9EC5 /* PBXContainerItemProxy */;
+		};
+		2F5E8F912590B5FD003E9EC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F5E8F6D2590B5FC003E9EC5 /* Sugarless */;
+			targetProxy = 2F5E8F902590B5FD003E9EC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F5E8F772590B5FC003E9EC5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F5E8F782590B5FC003E9EC5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2F5E8F7C2590B5FD003E9EC5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F5E8F7D2590B5FD003E9EC5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F5E8F962590B5FD003E9EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2F5E8F972590B5FD003E9EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F5E8F992590B5FD003E9EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C8290DD1231E8B43C6DAD7C /* Pods-Sugarless.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 73YYV5Y2WD;
+				INFOPLIST_FILE = Sugarless/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AnhDucCo.op.Sugarless;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2F5E8F9A2590B5FD003E9EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C2F3C661F8C2D6EC91BE96A /* Pods-Sugarless.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 73YYV5Y2WD;
+				INFOPLIST_FILE = Sugarless/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AnhDucCo.op.Sugarless;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2F5E8F9C2590B5FD003E9EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 73YYV5Y2WD;
+				INFOPLIST_FILE = SugarlessTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AnhDucCo.op.SugarlessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sugarless.app/Sugarless";
+			};
+			name = Debug;
+		};
+		2F5E8F9D2590B5FD003E9EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 73YYV5Y2WD;
+				INFOPLIST_FILE = SugarlessTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AnhDucCo.op.SugarlessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sugarless.app/Sugarless";
+			};
+			name = Release;
+		};
+		2F5E8F9F2590B5FD003E9EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 73YYV5Y2WD;
+				INFOPLIST_FILE = SugarlessUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AnhDucCo.op.SugarlessUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sugarless;
+			};
+			name = Debug;
+		};
+		2F5E8FA02590B5FD003E9EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 73YYV5Y2WD;
+				INFOPLIST_FILE = SugarlessUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AnhDucCo.op.SugarlessUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sugarless;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F5E8F692590B5FC003E9EC5 /* Build configuration list for PBXProject "Sugarless" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F5E8F962590B5FD003E9EC5 /* Debug */,
+				2F5E8F972590B5FD003E9EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F5E8F982590B5FD003E9EC5 /* Build configuration list for PBXNativeTarget "Sugarless" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F5E8F992590B5FD003E9EC5 /* Debug */,
+				2F5E8F9A2590B5FD003E9EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F5E8F9B2590B5FD003E9EC5 /* Build configuration list for PBXNativeTarget "SugarlessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F5E8F9C2590B5FD003E9EC5 /* Debug */,
+				2F5E8F9D2590B5FD003E9EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F5E8F9E2590B5FD003E9EC5 /* Build configuration list for PBXNativeTarget "SugarlessUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F5E8F9F2590B5FD003E9EC5 /* Debug */,
+				2F5E8FA02590B5FD003E9EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F5E8F662590B5FC003E9EC5 /* Project object */;
+}
