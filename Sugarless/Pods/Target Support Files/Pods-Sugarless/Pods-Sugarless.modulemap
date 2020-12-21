@@ -1,0 +1,6 @@
+framework module Pods_Sugarless {
+  umbrella header "Pods-Sugarless-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ApplicationDelegate.shared.application( application, didFinishLaunchingWithOptions: launchOptions)
         
+        window = UIWindow(frame: UIScreen.main.bounds)
         let vc = ViewController()
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
