@@ -28,7 +28,7 @@ class MainPageViewController: UIViewController {
                 self.present(vc, animated: true, completion: nil)
             }
         }else{
-            print(Auth.auth().currentUser?.displayName)
+            print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.email)
         }
         
         self.view.addSubview(logout)

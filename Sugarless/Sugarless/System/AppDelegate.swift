@@ -25,12 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FirebaseApp.configure()
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        
-            
-            let vc = MainPageViewController()
-            window?.rootViewController = vc
-            window?.makeKeyAndVisible()
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        
+//            
+//            let vc = MainPageViewController()
+//            window?.rootViewController = vc
+//            window?.makeKeyAndVisible()
 
 
         

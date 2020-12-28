@@ -38,6 +38,18 @@ class LoginViewController: UIViewController {
     let loginManager = LoginManager()
     
     // MARK: - ViewDidLoad
+    override func viewWillAppear(_ animated: Bool) {
+        passTF.text = ""
+        emailTF.text = ""
+        line1.backgroundColor = .gray
+        line2.backgroundColor = .gray
+        line1.alpha = 0.3
+        line2.alpha = 0.3
+        
+        if Auth.auth().currentUser != nil{
+            dismiss(animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -246,8 +258,6 @@ class LoginViewController: UIViewController {
         facebookImg.contentMode = .scaleAspectFit
         
         
-        
-        
         registerLb.text = "Don't have an account? "
         registerLb.font = .boldSystemFont(ofSize: 14)
         
@@ -337,6 +347,11 @@ class LoginViewController: UIViewController {
     
     @objc func loginAct(){
         
+        line1.backgroundColor = .gray
+        line2.backgroundColor = .gray
+        line1.alpha = 0.3
+        line2.alpha = 0.3
+        
         UIView.animate(withDuration: 0.15,
             animations: {
                 self.loginBt.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
@@ -348,7 +363,7 @@ class LoginViewController: UIViewController {
             })
         
         
-        if(emailTF.text! == "" && passTF.text == ""){
+        if(emailTF.text! == "" && passTF.text! == ""){
             if(emailTF.text! == ""){
                 line1.backgroundColor = .systemRed
                 line1.alpha = 1
@@ -372,8 +387,8 @@ class LoginViewController: UIViewController {
                     
                 }else{
                     //login fail
-                    let alert = UIAlertController(title: "Đăng Nhập Thất Bại", message: "Đăng nhập lại", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Thử lại", style: .cancel, handler: { (UIAlertAction) in
+                    let alert = UIAlertController(title: "Login Fail", message: "Login Again", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Try again", style: .cancel, handler: { (UIAlertAction) in
                         alert.dismiss(animated: true, completion: nil)
                         self?.removeSpinner()
                     }))
