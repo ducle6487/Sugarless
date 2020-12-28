@@ -28,20 +28,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3nb-M2-pmG" id="8mp-rf-zVA">
                                             <rect key="frame" x="0.0" y="0.0" width="328" height="185"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSu-az-h7D">
-                                                    <rect key="frame" x="35" y="22" width="240" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="eSu-az-h7D" firstAttribute="height" secondItem="8mp-rf-zVA" secondAttribute="height" multiplier="48:37" id="RPj-Wx-ENE"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="RPj-Wx-ENE"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
