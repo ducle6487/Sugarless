@@ -11,8 +11,7 @@ class CustomAllProductCollectionView: UIView, UICollectionViewDelegateFlowLayout
     
     //dùng biến để chúa các dữ liệu cần load
     
-    var name: String?
-    var price: String?
+    var listMonAn = [MonAn]()
     
     var seeAllVC : CustomSeeAllViewController?
     
@@ -64,7 +63,7 @@ class CustomAllProductCollectionView: UIView, UICollectionViewDelegateFlowLayout
 
 extension CustomAllProductCollectionView: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return listMonAn.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -73,8 +72,9 @@ extension CustomAllProductCollectionView: UICollectionViewDelegate, UICollection
         cell.layer.cornerRadius = 20
         cell.layer.borderWidth = 0.75
         cell.layer.borderColor = UIColor.gray.cgColor
-        cell.name = name//test
-        cell.price = price//test
+        cell.name = listMonAn[indexPath.item].name
+        cell.price = listMonAn[indexPath.item].price
+        cell.image = "test"
         cell.setupView()
         return cell
     }

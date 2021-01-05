@@ -7,7 +7,23 @@
 
 import UIKit
 
-class MainPageCollectionViewCell: UICollectionViewCell {
+class MainPageCollectionViewCell: UICollectionViewCell, sentDataToUI{
+    
+    func onDataUpdate() {
+        DispatchQueue.main.async { [self] in
+            bestSellerCLV.listMonAn = monAnUtils.listBestSeller
+            FavouriteCLV.listMonAn = monAnUtils.listFavouriting
+            RecommendCLV.listMonAn = monAnUtils.listRecommend
+            bestSellerCLV.collectionView.reloadData()
+            FavouriteCLV.collectionView.reloadData()
+            RecommendCLV.collectionView.reloadData()
+        }
+    }
+    
+    
+    
+    var monAnUtils = MonAnUtils()
+    
     
     let screenHeight = UIScreen.main.bounds.height
     var MainPage: MainPageViewController?
@@ -17,6 +33,8 @@ class MainPageCollectionViewCell: UICollectionViewCell {
         width.isActive = true
         return width
     }()
+    
+    
         
     lazy var bestSellerCLV : CustomProductCollectionView = {
         
@@ -39,7 +57,7 @@ class MainPageCollectionViewCell: UICollectionViewCell {
         
     }()
     
-    lazy var groceriesCLV : CustomProductCollectionView = {
+    lazy var RecommendCLV : CustomProductCollectionView = {
         
         let vc = CustomProductCollectionView()
         
@@ -53,7 +71,12 @@ class MainPageCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
+        //protocol get mon an data
+        monAnUtils.delegate = self
         
+        monAnUtils.getMonAnBestSellerFromFirebase()
+        monAnUtils.getMonAnRecommendFromFirebase()
+        monAnUtils.getMonAnFavouriteFromFirebase()
         
     }
     
@@ -166,7 +189,7 @@ class MainPageCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func setupViewsLarge(){
+    func setupRecommend(){
         
         let coverView = UIView()
         
@@ -176,8 +199,8 @@ class MainPageCollectionViewCell: UICollectionViewCell {
             make.height.equalTo(screenHeight / 2.75)
         }
         
-        coverView.addSubview(FavouriteCLV)
-        FavouriteCLV.snp.makeConstraints { (make) in
+        coverView.addSubview(RecommendCLV)
+        RecommendCLV.snp.makeConstraints { (make) in
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(coverView.snp.top).offset((screenHeight / 2.75)*0.2)
         }
@@ -186,7 +209,7 @@ class MainPageCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(viewHeader)
         viewHeader.snp.makeConstraints { (make) in
             make.leading.top.trailing.equalToSuperview()
-            make.bottom.equalTo(FavouriteCLV.snp.top)
+            make.bottom.equalTo(RecommendCLV.snp.top)
         }
         
         
@@ -198,7 +221,7 @@ class MainPageCollectionViewCell: UICollectionViewCell {
             make.leading.equalTo(20)
         }
         
-        headerLb.text = "Groceries"
+        headerLb.text = "Recommend"
         headerLb.font = .boldSystemFont(ofSize: 25)
         
         let seeAll = UIButton()
@@ -210,15 +233,14 @@ class MainPageCollectionViewCell: UICollectionViewCell {
         
         seeAll.setAttributedTitle(NSAttributedString(string: "See all", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemGreen, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]), for: .normal)
         
-        seeAll.addTarget(self, action: #selector(seeAllGroceriesAct), for: .touchUpInside)
+        seeAll.addTarget(self, action: #selector(seeAllRecommendAct), for: .touchUpInside)
     }
     
     
     @objc func seeAllFavouriteAct(){
         
         let vc = CustomSeeAllViewController()
-        vc.name = "Le Anh Duc"
-        vc.price = "123456"
+        vc.listMonAn = monAnUtils.listFavouriting
         vc.navTitle = "Favouriting"
         let navVC = UINavigationController(rootViewController: vc)
         navVC.modalPresentationStyle = .fullScreen
@@ -227,12 +249,11 @@ class MainPageCollectionViewCell: UICollectionViewCell {
         
     }
     
-    @objc func seeAllGroceriesAct(){
+    @objc func seeAllRecommendAct(){
         
         let vc = CustomSeeAllViewController()
-        vc.name = "Hello Đức Lê"
-        vc.price = "123456"
-        vc.navTitle = "Groceries"
+        vc.listMonAn = monAnUtils.listRecommend
+        vc.navTitle = "Recommend"
         let navVC = UINavigationController(rootViewController: vc)
         navVC.modalPresentationStyle = .fullScreen
         
@@ -242,8 +263,7 @@ class MainPageCollectionViewCell: UICollectionViewCell {
     @objc func seeAllBestSellerAct(){
         
         let vc = CustomSeeAllViewController()
-        vc.name = "Hello Đức"
-        vc.price = "123456"
+        vc.listMonAn = monAnUtils.listBestSeller
         vc.navTitle = "Best Selling"
         let navVC = UINavigationController(rootViewController: vc)
         navVC.modalPresentationStyle = .fullScreen

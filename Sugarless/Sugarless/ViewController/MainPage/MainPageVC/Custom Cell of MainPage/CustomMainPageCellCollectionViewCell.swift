@@ -10,18 +10,23 @@ import UIKit
 class CustomMainPageCellCollectionViewCell: UICollectionViewCell {
     
     let addBt = UIButton()
-    func setupView(){
+    let productImg = UIImageView()
+    let nameLb = UILabel()
+    let priceLb = UILabel()
+    
+    func setupView(image: String, name: String, price: String){
         
-        let productImg = UIImageView()
+        
+        
         contentView.addSubview(productImg)
         productImg.snp.makeConstraints { (make) in
             make.leading.trailing.top.equalToSuperview()
             make.height.equalToSuperview().dividedBy(1.7)
         }
-        productImg.image = UIImage(named: "test")
+        productImg.image = UIImage(named: image)
         productImg.contentMode = .scaleAspectFit
         
-        let nameLb = UILabel()
+        
         contentView.addSubview(nameLb)
         nameLb.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(contentView.frame.width / 15)
@@ -29,11 +34,11 @@ class CustomMainPageCellCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(productImg.snp.bottom).offset(contentView.frame.height / 25)
         }
         
-        nameLb.text = "Lê Anh Đức"
+        nameLb.text = name
         nameLb.numberOfLines = 2
         
         
-        let priceLb = UILabel()
+        
         contentView.addSubview(priceLb)
         priceLb.snp.makeConstraints { (make) in
             make.leading.equalTo(nameLb)
@@ -41,7 +46,7 @@ class CustomMainPageCellCollectionViewCell: UICollectionViewCell {
             make.trailing.equalToSuperview().offset(-(contentView.frame.width * 0.3))
         }
         
-        priceLb.text = "1000000"
+        priceLb.text = "\(price) vnđ"
         
         
         

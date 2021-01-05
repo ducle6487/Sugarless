@@ -11,11 +11,12 @@ class CustomProductCollectionView: CustomMainPageCellCollectionView{
     
     
     //cho 1 bien chua data cho cả groceries, favourite , best seling
+    var listMonAn = [MonAn]()
     
     var MainPage: MainPageViewController?
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return listMonAn.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -24,7 +25,7 @@ class CustomProductCollectionView: CustomMainPageCellCollectionView{
         cell.layer.cornerRadius = 20
         cell.layer.borderWidth = 0.75
         cell.layer.borderColor = UIColor.gray.cgColor
-        cell.setupView()
+        cell.setupView(image: "test", name: listMonAn[indexPath.item].name ?? "", price: listMonAn[indexPath.item].price ?? "")
         return cell
     }
     
@@ -32,6 +33,9 @@ class CustomProductCollectionView: CustomMainPageCellCollectionView{
         
         let vc = DescriptionProductViewController()
         vc.modalPresentationStyle = .fullScreen
+        vc.name = listMonAn[indexPath.item].name ?? ""
+        vc.price = listMonAn[indexPath.item].price ?? ""
+        vc.des = listMonAn[indexPath.item].description ?? ""
         MainPage?.present(vc, animated: true, completion: nil)
         
     }

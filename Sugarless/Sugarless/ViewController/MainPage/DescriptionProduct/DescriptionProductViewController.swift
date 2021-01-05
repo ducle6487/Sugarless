@@ -13,6 +13,12 @@ class DescriptionProductViewController: UIViewController {
     
     // MARK: - Variable
     
+    var name = ""
+    var image = "test2"
+    var price = ""
+    var des = ""
+    
+    
     var amountCount = 1
     
     var heightLabel : Constraint?
@@ -91,7 +97,7 @@ class DescriptionProductViewController: UIViewController {
         }
         
         coverImgVw.roundCorners([.layerMaxXMaxYCorner, .layerMinXMaxYCorner], radius: 22)
-        coverImgVw.image = UIImage(named: "test2")
+        coverImgVw.image = UIImage(named: image)
         coverImgVw.contentMode = .scaleToFill
         coverImgVw.blurImage()
         coverImgVw.alpha = 0.4
@@ -140,7 +146,7 @@ class DescriptionProductViewController: UIViewController {
             make.top.equalTo(coverImgVw.snp.bottom).offset(self.view.frame.height / 40)
         }
         
-        nameLb.text = "Lê Anh Đức"
+        nameLb.text = name
         nameLb.numberOfLines = 0
         nameLb.font = .boldSystemFont(ofSize: 25)
         
@@ -207,7 +213,7 @@ class DescriptionProductViewController: UIViewController {
             make.centerY.equalTo(minusBt)
         }
         
-        priceLb.text = "200000đ"
+        priceLb.text = "\(price) vnđ"
         priceLb.font = .boldSystemFont(ofSize: 25)
         priceLb.textAlignment = .right
         
@@ -255,7 +261,7 @@ class DescriptionProductViewController: UIViewController {
         
         contentDetailLb.sizeToFit()
         contentDetailLb.numberOfLines = 0
-        contentDetailLb.text = "Thành phần Kẹo hạt cao cấp Premi cracker: \nNhân hạt điều, đậu phộng, nhân hạt dưa hấu, nhân hạt bí đỏ, mè trắng, mạch nha, đường ăn kiêng lsomailt.  \nĐối tượng sử dụng Kẹo hạt cao cấp Premi cracker: \nKẹo hạt cao cấp Premi cracker phù hợp với tất cả mọi người, đặc biệt tốt cho người bệnh tiểu đường, tim mạch, người ăn kiêng.  \nCông dụng Kẹo hạt cao cấp Premi cracker: \n Không làm tăng cân – Phù hợp cho những ai muốn kiểm soát cân nặng của mình, và đặc biệt những người làm văn phòng quan tâm giữ “phọt”.  \n Không làm tăng đường huyết - Cho những ai bị tiểu đường.  \n Không làm dính nhớp trên tay - Thuận tiện cho ăn vặt trong giờ làm, có thể vừa ăn vừa làm trên máy tính hoặc lướt điện thoại smartphone.  \n Tiện lợi, tiết kiệm thời gian – không phải chế biến gì thêm. Thuận tiện cho người bận rộn, hoặc những chuyến đi xa nhà.  \nThực phẩm không hóa chất. Những thực phẩm này không dùng hóa chất trong phụ gia và chất bảo quản, để chất lượng sản phẩm đúng ý nghĩa có lợi cho sức khỏe người dùng.  \nCách dùng Kẹo hạt cao cấp Premi cracker: \nKẹo hạt cao cấp Premi cracker dùng ăn trực tiếp (nhai kỹ)."
+        contentDetailLb.text = des
         contentDetailLb.font = .systemFont(ofSize: 16)
         contentDetailLb.textColor = .gray
         

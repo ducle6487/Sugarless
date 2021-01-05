@@ -12,9 +12,8 @@ class CustomSeeAllViewController: UIViewController {
     // MARK: - Variable
     
     
+    var listMonAn = [MonAn]()
     
-    var name : String?
-    var price : String?
     
     
     var navTitle : String?
@@ -23,8 +22,7 @@ class CustomSeeAllViewController: UIViewController {
         
         let vc = CustomAllProductCollectionView()
         vc.seeAllVC = self
-        vc.name = name
-        vc.price = price
+        vc.listMonAn = listMonAn
         
         return vc
         

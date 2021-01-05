@@ -12,8 +12,12 @@ import FirebaseAuth
 import FBSDKLoginKit
 
 class MainPageViewController: UIViewController, UISearchBarDelegate {
+    
+    
 
     // MARK: - Variable
+    
+    
     
     var searchBar = UISearchBar()
     
@@ -31,9 +35,12 @@ class MainPageViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         self.view.backgroundColor = .white
         self.navigationItem.title = "Shop"
         self.hideKeyboardWhenTappedAround()
+        
         
         if Auth.auth().currentUser == nil{
             DispatchQueue.main.async {

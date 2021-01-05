@@ -10,6 +10,7 @@ import UIKit
 class MainPageCollectionView: UIView, UICollectionViewDelegateFlowLayout{
     
     
+    
     private let mainCellID = "mainCell"
     var mainPageVC: MainPageViewController?
     
@@ -34,6 +35,8 @@ class MainPageCollectionView: UIView, UICollectionViewDelegateFlowLayout{
     
     override init(frame: CGRect){
         super.init(frame: frame)
+        
+        
         
         collectionView.register(MainPageCollectionViewCell.self, forCellWithReuseIdentifier: mainCellID)
         addSubview(collectionView)
@@ -60,7 +63,7 @@ extension MainPageCollectionView :  UICollectionViewDelegate, UICollectionViewDa
         cell.MainPage = mainPageVC
         
         if indexPath.item == 2{
-            cell.setupViewsLarge()
+            cell.setupRecommend()
         }else if indexPath.item == 0{
             cell.setupViewBestSeller()
         }else{
