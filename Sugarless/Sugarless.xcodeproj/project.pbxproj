@@ -20,6 +20,9 @@
 		2F62D94525938CC900BB442A /* LoginUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F62D94425938CC900BB442A /* LoginUtils.swift */; };
 		2F62D9C52597875700BB442A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F62D9C42597875700BB442A /* RegisterViewController.swift */; };
 		58819876D6DBD6B8048730E0 /* Pods_Sugarless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D80740E019DB4025F278153 /* Pods_Sugarless.framework */; };
+		5A3A7881259A0147007CE40A /* InforTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7880259A0146007CE40A /* InforTableViewCell.swift */; };
+		5A3A788E259A01B3007CE40A /* InforViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A788D259A01B3007CE40A /* InforViewController.swift */; };
+		5ADB581E259B61B60071BE9B /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB581D259B61B60071BE9B /* ContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		2F62D917259381AE00BB442A /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		2F62D94425938CC900BB442A /* LoginUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUtils.swift; sourceTree = "<group>"; };
 		2F62D9C42597875700BB442A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5A3A7880259A0146007CE40A /* InforTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InforTableViewCell.swift; path = ../../../../../Documents/InforTableViewCell.swift; sourceTree = "<group>"; };
+		5A3A788D259A01B3007CE40A /* InforViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InforViewController.swift; path = ../../../../../Documents/InforViewController.swift; sourceTree = "<group>"; };
+		5ADB581D259B61B60071BE9B /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		6D80740E019DB4025F278153 /* Pods_Sugarless.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sugarless.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2F3C661F8C2D6EC91BE96A /* Pods-Sugarless.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sugarless.release.xcconfig"; path = "Target Support Files/Pods-Sugarless/Pods-Sugarless.release.xcconfig"; sourceTree = "<group>"; };
 		9C8290DD1231E8B43C6DAD7C /* Pods-Sugarless.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sugarless.debug.xcconfig"; path = "Target Support Files/Pods-Sugarless/Pods-Sugarless.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +210,7 @@
 		2F62D9BC2597868500BB442A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5A3A787F259A0114007CE40A /* Sugarless Info */,
 				2F62D9C02597870700BB442A /* Register */,
 				2F62D91C259381CF00BB442A /* Login */,
 				2F62D91D259381DE00BB442A /* MainPage */,
@@ -217,6 +224,16 @@
 				2F62D9C42597875700BB442A /* RegisterViewController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		5A3A787F259A0114007CE40A /* Sugarless Info */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A7880259A0146007CE40A /* InforTableViewCell.swift */,
+				5A3A788D259A01B3007CE40A /* InforViewController.swift */,
+				5ADB581D259B61B60071BE9B /* ContentViewController.swift */,
+			);
+			path = "Sugarless Info";
 			sourceTree = "<group>";
 		};
 		878043AC1DC4CA2B40C61338 /* Pods */ = {
@@ -424,9 +441,12 @@
 				2F62D918259381AE00BB442A /* MainPageViewController.swift in Sources */,
 				2F25C67925922AEC0020BFC5 /* Extension.swift in Sources */,
 				2F62D94525938CC900BB442A /* LoginUtils.swift in Sources */,
+				5A3A7881259A0147007CE40A /* InforTableViewCell.swift in Sources */,
+				5ADB581E259B61B60071BE9B /* ContentViewController.swift in Sources */,
 				2F62D9C52597875700BB442A /* RegisterViewController.swift in Sources */,
 				2F5E8F762590B5FC003E9EC5 /* LoginViewController.swift in Sources */,
 				2F5E8F722590B5FC003E9EC5 /* AppDelegate.swift in Sources */,
+				5A3A788E259A01B3007CE40A /* InforViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
