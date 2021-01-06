@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FirebaseApp.configure()
         
+<<<<<<< HEAD
         window = UIWindow(frame: UIScreen.main.bounds)
         
             
@@ -32,6 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             
             window?.rootViewController = vc
             window?.makeKeyAndVisible()
+=======
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//
+//
+//            let vc = MainPageViewController()
+//            window?.rootViewController = vc
+//            window?.makeKeyAndVisible()
+>>>>>>> Khanh
 
 
         
