@@ -48,3 +48,87 @@ extension UIViewController {
             }
         }
 }
+
+extension UIImageView {
+    func roundCorners(_ corners: CACornerMask, radius: CGFloat) {
+        if #available(iOS 11, *) {
+            self.layer.cornerRadius = radius
+            self.layer.maskedCorners = corners
+        } else {
+            var cornerMask = UIRectCorner()
+            if(corners.contains(.layerMinXMinYCorner)){
+                cornerMask.insert(.topLeft)
+            }
+            if(corners.contains(.layerMaxXMinYCorner)){
+                cornerMask.insert(.topRight)
+            }
+            if(corners.contains(.layerMinXMaxYCorner)){
+                cornerMask.insert(.bottomLeft)
+            }
+            if(corners.contains(.layerMaxXMaxYCorner)){
+                cornerMask.insert(.bottomRight)
+            }
+            let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: cornerMask, cornerRadii: CGSize(width: radius, height: radius))
+            let mask = CAShapeLayer()
+            mask.path = path.cgPath
+            self.layer.mask = mask
+        }
+    }
+}
+
+extension UIImageView{
+    func blurImage()
+    {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.bounds
+
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        self.addSubview(blurEffectView)
+    }
+}
+
+extension UILabel {
+
+    func set(text:String, leftIcon: UIImage? = nil, rightIcon: UIImage? = nil) {
+
+        let leftAttachment = NSTextAttachment()
+        leftAttachment.image = leftIcon
+        leftAttachment.bounds = CGRect(x: 0, y: -2.5, width: 20, height: 20)
+        if let leftIcon = leftIcon {
+            leftAttachment.bounds = CGRect(x: 0, y: -2.5, width: leftIcon.size.width, height: leftIcon.size.height)
+        }
+        let leftAttachmentStr = NSAttributedString(attachment: leftAttachment)
+
+        let myString = NSMutableAttributedString(string: "")
+
+        let rightAttachment = NSTextAttachment()
+        rightAttachment.image = rightIcon
+        rightAttachment.bounds = CGRect(x: 0, y: -5, width: 20, height: 20)
+        let rightAttachmentStr = NSAttributedString(attachment: rightAttachment)
+
+
+        if semanticContentAttribute == .forceRightToLeft {
+            if rightIcon != nil {
+                myString.append(rightAttachmentStr)
+                myString.append(NSAttributedString(string: " "))
+            }
+            myString.append(NSAttributedString(string: text))
+            if leftIcon != nil {
+                myString.append(NSAttributedString(string: " "))
+                myString.append(leftAttachmentStr)
+            }
+        } else {
+            if leftIcon != nil {
+                myString.append(leftAttachmentStr)
+                myString.append(NSAttributedString(string: " "))
+            }
+            myString.append(NSAttributedString(string: text))
+            if rightIcon != nil {
+                myString.append(NSAttributedString(string: " "))
+                myString.append(rightAttachmentStr)
+            }
+        }
+        attributedText = myString
+    }
+}

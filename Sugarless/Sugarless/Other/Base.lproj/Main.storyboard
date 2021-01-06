@@ -28,6 +28,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K9z-2i-JSa" id="6Er-BY-nrT">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="375"/>
                                             <autoresizingMask key="autoresizingMask"/>
+<<<<<<< HEAD
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tittle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8U-EI-m2q">
                                                     <rect key="frame" x="30" y="195" width="354" height="129"/>
@@ -60,6 +61,8 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="1TZ-ig-lAq" secondAttribute="bottom" constant="148" id="sGS-3K-eVg"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="1TZ-ig-lAq" secondAttribute="trailing" constant="67" id="xAb-Ar-sa0"/>
                                             </constraints>
+=======
+>>>>>>> Duc
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lbDate" destination="yGi-z1-G1x" id="x7j-ca-NOi"/>
