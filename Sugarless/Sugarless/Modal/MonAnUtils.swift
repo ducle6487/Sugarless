@@ -12,6 +12,18 @@ protocol sentDataToUI {
     func onDataUpdate()
 }
 
+protocol sentSearchResultToUI{
+    func onResultUpdate()
+}
+
+protocol sentDataMonAnCacLoaiToUI {
+    func onDataFavouriteUpdate()
+    
+    func onDataBestSellerUpdate()
+    
+    func onDataRecommendUpdate()
+}
+
 class MonAnUtils{
     
     var ref: DatabaseReference!
@@ -20,6 +32,10 @@ class MonAnUtils{
     var listBestSeller = [MonAn]()
     var listFavouriting = [MonAn]()
     var listRecommend = [MonAn]()
+    var delegateSearch: sentSearchResultToUI?
+    var delegateUpdate: sentDataMonAnCacLoaiToUI?
+    
+    var searchResult = [MonAn]()
     
     func getMonAnFromFirebase(){
         
@@ -41,10 +57,11 @@ class MonAnUtils{
                 let monan = MonAn(id: id, name: name, price: price, des: des, type: type)
                 listMonAn.append(monan)
                 
-                delegate.onDataUpdate()
+                
                 
             }
             
+            delegate.onDataUpdate()
             
         } withCancel: { (err) in
             print(err.localizedDescription)
@@ -73,8 +90,9 @@ class MonAnUtils{
                 let monan = MonAn(id: id, name: name, price: price, des: des, type: type)
                 listBestSeller.append(monan)
                 
-                delegate.onDataUpdate()
+               
             }
+            delegate.onDataUpdate()
             
             
         } withCancel: { (err) in
@@ -104,9 +122,10 @@ class MonAnUtils{
                 let monan = MonAn(id: id, name: name, price: price, des: des, type: type)
                 listFavouriting.append(monan)
                 
-                delegate.onDataUpdate()
+                
             }
             
+            delegate.onDataUpdate()
             
         } withCancel: { (err) in
             print(err.localizedDescription)
@@ -135,14 +154,42 @@ class MonAnUtils{
                 let monan = MonAn(id: id, name: name, price: price, des: des, type: type)
                 listRecommend.append(monan)
                 
-                delegate.onDataUpdate()
+                
             }
-            
+            delegate.onDataUpdate()
             
         } withCancel: { (err) in
             print(err.localizedDescription)
             
         }
+    }
+    
+    
+    func searchWithString(key: String){
+        
+        if listMonAn.isEmpty{
+            
+            getMonAnFromFirebase()
+            
+        }else{
+            
+            searchResult.removeAll()
+            
+            for item in listMonAn{
+                
+                let value = item.name
+                
+                if value!.containsIgnoringCase(key){
+                    
+                    searchResult.append(item)
+                    
+                }
+                
+            }
+            
+            delegateSearch?.onResultUpdate()
+        }
+        
     }
     
     

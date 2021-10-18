@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class CustomMainPageCellCollectionViewCell: UICollectionViewCell {
     
@@ -13,18 +14,49 @@ class CustomMainPageCellCollectionViewCell: UICollectionViewCell {
     let productImg = UIImageView()
     let nameLb = UILabel()
     let priceLb = UILabel()
+    // Get a reference to the storage service using the default Firebase App
+    let storage = Storage.storage()
+    // Create a storage reference from our storage service
+    
+    var image = ""
+    var name = ""
+    var price = ""
     
     func setupView(image: String, name: String, price: String){
         
+        self.name = name
+        self.image = image
+        self.price = price
         
+        
+        let storageRef = storage.reference()
+        
+        // Create a reference to the file you want to download
+        let starsRef = storageRef.child("Product/\(image).jpg")
+
         
         contentView.addSubview(productImg)
         productImg.snp.makeConstraints { (make) in
             make.leading.trailing.top.equalToSuperview()
             make.height.equalToSuperview().dividedBy(1.7)
         }
-        productImg.image = UIImage(named: image)
-        productImg.contentMode = .scaleAspectFit
+        
+        
+        
+        // Fetch the download URL
+        starsRef.downloadURL { [self] url, error in
+          if let error = error {
+            print(error)
+          } else {
+            DispatchQueue.main.async {
+                
+                productImg.downloaded(from: url!)
+                productImg.contentMode = .scaleAspectFit
+            }
+          }
+        }
+        
+        
         
         
         contentView.addSubview(nameLb)
@@ -35,7 +67,7 @@ class CustomMainPageCellCollectionViewCell: UICollectionViewCell {
         }
         
         nameLb.text = name
-        nameLb.numberOfLines = 2
+        nameLb.numberOfLines = 1
         
         
         
@@ -46,7 +78,7 @@ class CustomMainPageCellCollectionViewCell: UICollectionViewCell {
             make.trailing.equalToSuperview().offset(-(contentView.frame.width * 0.3))
         }
         
-        priceLb.text = "\(price) vnđ"
+        priceLb.text = Int(price)!.formattedWithSeparator + "VNĐ"
         
         
         
@@ -76,6 +108,23 @@ class CustomMainPageCellCollectionViewCell: UICollectionViewCell {
                     self.addBt.transform = CGAffineTransform.identity
                 }
             })
+        
+        // them vao gio hang
+        
+        for item in GioHangUtils.ListGioHang{
+            
+            if item.name == name{
+                item.amount = item.amount! + 1
+                GioHangUtils.reloadCart()
+                GioHangUtils.saveCartToUserDefault()
+                return
+            }
+            
+        }
+        
+        GioHangUtils.ListGioHang.append(GioHang(name: name, price: price, image: image, amount: 1))
+        GioHangUtils.saveCartToUserDefault()
+        GioHangUtils.reloadCart()
         
         
     }

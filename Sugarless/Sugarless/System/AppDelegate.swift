@@ -12,12 +12,14 @@ import FBSDKCoreKit
 import GoogleSignIn
 import FBSDKLoginKit
 
+
 @UIApplicationMain
+
 
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         ApplicationDelegate.shared.application( application, didFinishLaunchingWithOptions: launchOptions)
@@ -25,22 +27,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FirebaseApp.configure()
         
-<<<<<<< HEAD
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//
-//
-//            let vc = MainPageViewController()
-//            window?.rootViewController = vc
-//            window?.makeKeyAndVisible()
-=======
         window = UIWindow(frame: UIScreen.main.bounds)
         
-            
-            let vc = MainPageViewController()
-            
-            window?.rootViewController = vc
-            window?.makeKeyAndVisible()
->>>>>>> Duc
+        GioHangUtils.getCartSavedInUserDefault()
+        
+        let vc = UITabBarController()
+        let item1 = UITabBarItem()
+        item1.title = "Shop"
+        item1.image = UIImage(named: "shop")
+        let mainVC = MainPageViewController()
+        mainVC.rootVC = vc
+        let mainPageVC = UINavigationController(rootViewController: mainVC)
+        mainPageVC.tabBarItem = item1
+        
+        let item2 = UITabBarItem()
+        item2.title = "Explore"
+        item2.image = UIImage(named: "search")
+        let typeProductVC = TypeProductViewController()
+        typeProductVC.tabBarItem = item2
+        
+        let item3 = UITabBarItem()
+        item3.title = "Cart"
+        item3.image = UIImage(named: "cart")
+        let cart = GioHangViewController()
+        cart.tabBarItem = item3
+        
+        
+        let item4 = UITabBarItem()
+        item4.image = UIImage(named: "account")
+        item4.title = "Account"
+        let account = AccountViewController()
+        account.tabBarItem = item4
+        
+        
+        vc.viewControllers = [mainPageVC,typeProductVC,cart,account]
+        
+        let test = UINavigationController(rootViewController: DeliveryDescriptionViewController())
+        
+        
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
 
 
         
@@ -52,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         return true
     }
+    
     
     
     func application( _ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:] ) -> Bool {
@@ -74,15 +101,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
         Auth.auth().signIn(with: credential) { [self] (AuthDataResult, Error) in
             
-            let vc = MainPageViewController()
-            self.window?.rootViewController = vc
+            if Error != nil{
+                
+                print(Error?.localizedDescription)
+                
+                return
+                
+            }
+            
+            print("login google")
+            let url: String = Auth.auth().currentUser?.photoURL?.absoluteString  ?? ""
+            let profile = ProfileUser(id: Auth.auth().currentUser?.uid ?? "", name: Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.email ?? "", img: url, des: "anh duc dep trai vai ", email: Auth.auth().currentUser?.email ?? "", ns: "", gioitinh: "", phone: "")
+            ProfileUtils.installProfile(profile: profile)
+            
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let vc = UITabBarController()
+            let item1 = UITabBarItem()
+            item1.title = "Shop"
+            item1.image = UIImage(named: "shop")
+            let mainVC = MainPageViewController()
+            mainVC.rootVC = vc
+            let mainPageVC = UINavigationController(rootViewController: mainVC)
+            mainPageVC.tabBarItem = item1
+            
+            let item2 = UITabBarItem()
+            item2.title = "Explore"
+            item2.image = UIImage(named: "search")
+            let typeProductVC = TypeProductViewController()
+            typeProductVC.tabBarItem = item2
+            
+            let item3 = UITabBarItem()
+            item3.title = "Cart"
+            item3.image = UIImage(named: "cart")
+            let cart = GioHangViewController()
+            cart.tabBarItem = item3
+            
+            
+            let item4 = UITabBarItem()
+            item4.image = UIImage(named: "account")
+            item4.title = "Account"
+            let account = AccountViewController()
+            account.tabBarItem = item4
+            
+            
+            vc.viewControllers = [mainPageVC,typeProductVC,cart,account]
+            
+            
+            window?.rootViewController = vc
             window?.makeKeyAndVisible()
+            
         }
 
 
       // ...
     }
-
     
     
 

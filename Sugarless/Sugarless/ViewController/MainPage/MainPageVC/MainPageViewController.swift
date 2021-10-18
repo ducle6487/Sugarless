@@ -11,15 +11,15 @@ import SnapKit
 import FirebaseAuth
 import FBSDKLoginKit
 
-class MainPageViewController: UIViewController, UISearchBarDelegate {
+class MainPageViewController: UIViewController{
+    
     
     
 
     // MARK: - Variable
+    var count = 0
     
-    
-    
-    var searchBar = UISearchBar()
+    var rootVC = UITabBarController()
     
     lazy var mainPageCLV: MainPageCollectionView = {
        
@@ -29,6 +29,7 @@ class MainPageViewController: UIViewController, UISearchBarDelegate {
         
     }()
     
+    let monanUtils = MonAnUtils()
     
     // MARK: - Life Cycle
     
@@ -36,48 +37,52 @@ class MainPageViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         
         
+//        self.showSpinner(onView: self.view)
         
         self.view.backgroundColor = .white
         self.navigationItem.title = "Shop"
         self.hideKeyboardWhenTappedAround()
         
         
-        if Auth.auth().currentUser == nil{
-            DispatchQueue.main.async {
-                let vc = LoginViewController()
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-        }else{
-            print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.email)
-        }
+        checkAuth()
         
         setupUI()
         
+//        signOut()
+     
+        PaymentUtils.getPaymentFromFirebase()
         
     }
+    
+    // MARK: - handle Upload Profile to firebase
+    
+    
+    
     
     
     // MARK: - SetupUI
     
+    func checkAuth(){
+        if Auth.auth().currentUser == nil{
+            DispatchQueue.main.async {
+                let vc = LoginViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.rootVC.present(vc, animated: true, completion: nil)
+            }
+        }else{
+            
+        }
+    }
+    
+    
     func setupUI(){
         
-        self.view.addSubview(searchBar)
-        searchBar.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(self.view.frame.width / 20)
-            make.trailing.equalToSuperview().offset(-(self.view.frame.width / 20))
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(self.view.frame.height / 30)
-        }
         
-        searchBar.searchBarStyle = .minimal
-        searchBar.isTranslucent = false
-        searchBar.placeholder = "Search store"
-     
         
         self.view.addSubview(mainPageCLV)
         mainPageCLV.snp.makeConstraints { (make) in
             make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
-            make.top.equalTo(searchBar.snp.bottom)
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
         }
         
         
@@ -108,6 +113,8 @@ class MainPageViewController: UIViewController, UISearchBarDelegate {
         
         
     }
+    
+    
     
 
 }

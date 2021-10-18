@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 extension UIColor {
     // Method returns a custom color
@@ -41,40 +42,40 @@ extension UIViewController {
             vSpinner = spinnerView
         }
         
-        func removeSpinner() {
-            DispatchQueue.main.async {
-                vSpinner?.removeFromSuperview()
-                vSpinner = nil
-            }
-        }
-}
-
-extension UIImageView {
-    func roundCorners(_ corners: CACornerMask, radius: CGFloat) {
-        if #available(iOS 11, *) {
-            self.layer.cornerRadius = radius
-            self.layer.maskedCorners = corners
-        } else {
-            var cornerMask = UIRectCorner()
-            if(corners.contains(.layerMinXMinYCorner)){
-                cornerMask.insert(.topLeft)
-            }
-            if(corners.contains(.layerMaxXMinYCorner)){
-                cornerMask.insert(.topRight)
-            }
-            if(corners.contains(.layerMinXMaxYCorner)){
-                cornerMask.insert(.bottomLeft)
-            }
-            if(corners.contains(.layerMaxXMaxYCorner)){
-                cornerMask.insert(.bottomRight)
-            }
-            let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: cornerMask, cornerRadii: CGSize(width: radius, height: radius))
-            let mask = CAShapeLayer()
-            mask.path = path.cgPath
-            self.layer.mask = mask
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            vSpinner?.removeFromSuperview()
+            vSpinner = nil
         }
     }
 }
+
+//extension UIImageView {
+//    func roundCorners(_ corners: CACornerMask, radius: CGFloat) {
+//        if #available(iOS 11, *) {
+//            self.layer.cornerRadius = radius
+//            self.layer.maskedCorners = corners
+//        } else {
+//            var cornerMask = UIRectCorner()
+//            if(corners.contains(.layerMinXMinYCorner)){
+//                cornerMask.insert(.topLeft)
+//            }
+//            if(corners.contains(.layerMaxXMinYCorner)){
+//                cornerMask.insert(.topRight)
+//            }
+//            if(corners.contains(.layerMinXMaxYCorner)){
+//                cornerMask.insert(.bottomLeft)
+//            }
+//            if(corners.contains(.layerMaxXMaxYCorner)){
+//                cornerMask.insert(.bottomRight)
+//            }
+//            let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: cornerMask, cornerRadii: CGSize(width: radius, height: radius))
+//            let mask = CAShapeLayer()
+//            mask.path = path.cgPath
+//            self.layer.mask = mask
+//        }
+//    }
+//}
 
 extension UIImageView{
     func blurImage()
@@ -86,7 +87,35 @@ extension UIImageView{
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
         self.addSubview(blurEffectView)
     }
+    
 }
+
+let cache = NSCache<NSURL, UIImage>()
+extension UIImageView {
+    
+    func downloaded(from url: URL) {
+        self.image = nil
+        if let imageFromCache = cache.object(forKey: url as NSURL){
+            self.image = imageFromCache
+            return
+        }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let imageToCache = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                cache.setObject(imageToCache, forKey: url as NSURL)
+                self?.image = imageToCache
+                
+            }
+        }.resume()
+    }
+    
+}
+
 
 extension UILabel {
 
@@ -130,5 +159,83 @@ extension UILabel {
             }
         }
         attributedText = myString
+    }
+}
+
+extension UIView{
+    func roundCorners(_ corners: CACornerMask, radius: CGFloat) {
+        if #available(iOS 11, *) {
+            self.layer.cornerRadius = radius
+            self.layer.maskedCorners = corners
+        } else {
+            var cornerMask = UIRectCorner()
+            if(corners.contains(.layerMinXMinYCorner)){
+                cornerMask.insert(.topLeft)
+            }
+            if(corners.contains(.layerMaxXMinYCorner)){
+                cornerMask.insert(.topRight)
+            }
+            if(corners.contains(.layerMinXMaxYCorner)){
+                cornerMask.insert(.bottomLeft)
+            }
+            if(corners.contains(.layerMaxXMaxYCorner)){
+                cornerMask.insert(.bottomRight)
+            }
+            let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: cornerMask, cornerRadii: CGSize(width: radius, height: radius))
+            let mask = CAShapeLayer()
+            mask.path = path.cgPath
+            self.layer.mask = mask
+        }
+    }
+}
+
+extension String {
+ 
+   func contains(_ find: String) -> Bool{
+     return self.range(of: find) != nil
+   }
+ 
+   func containsIgnoringCase(_ find: String) -> Bool{
+     return self.range(of: find, options: .caseInsensitive) != nil
+   }
+ }
+
+extension UITextField {
+    func disableAutoFill() {
+        if #available(iOS 12, *) {
+            textContentType = .oneTimeCode
+        } else {
+            textContentType = .init(rawValue: "")
+        }
+    }
+}
+
+extension Formatter {
+    static let withSeparator: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.groupingSeparator = "."
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+}
+
+extension Int{
+    var formattedWithSeparator: String {
+        return Formatter.withSeparator.string(for: self) ?? ""
+    }
+}
+extension String {
+    func attributedStringWithColor(_ strings: [String], color: UIColor, characterSpacing: UInt? = nil) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        for string in strings {
+            let range = (self as NSString).range(of: string)
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+        }
+
+        guard let characterSpacing = characterSpacing else {return attributedString}
+
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: characterSpacing, range: NSRange(location: 0, length: attributedString.length))
+
+        return attributedString
     }
 }

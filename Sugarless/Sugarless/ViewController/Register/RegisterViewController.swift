@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import FirebaseAuth
 
+
 class RegisterViewController: UIViewController {
 
     // MARK: - Variable
@@ -39,6 +40,8 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ProfileUtils.getProfile()
+        
         self.view.backgroundColor = .white
         self.hideKeyboardWhenTappedAround()
         setupUI()
@@ -68,12 +71,14 @@ class RegisterViewController: UIViewController {
         }
         
         passTf.placeholder = "Enter your Password"
-        passTf.isSecureTextEntry.toggle()
-        if #available(iOS 12.0, *) {
-            passTf.textContentType = .oneTimeCode
-        } else {
-            // Fallback on earlier versions
-        }
+        passTf.isSecureTextEntry = true
+        passTf.disableAutoFill()
+        passTf.textContentType = .password
+//        if #available(iOS 12.0, *) {
+//            passTf.textContentType = .oneTimeCode
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
         self.view.addSubview(line1)
         line1.snp.makeConstraints { (make) in
@@ -136,12 +141,14 @@ class RegisterViewController: UIViewController {
         }
         
         rePassTf.placeholder = "reEnter your Password"
-        rePassTf.isSecureTextEntry.toggle()
-        if #available(iOS 12.0, *) {
-            rePassTf.textContentType = .oneTimeCode
-        } else {
-            // Fallback on earlier versions
-        }
+        rePassTf.isSecureTextEntry = true
+        rePassTf.textContentType = .password
+        rePassTf.disableAutoFill()
+//        if #available(iOS 12.0, *) {
+//            rePassTf.textContentType = .oneTimeCode
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
         self.view.addSubview(line3)
         line3.snp.makeConstraints { (make) in
@@ -262,6 +269,10 @@ class RegisterViewController: UIViewController {
                         
                     }else{
                         
+                        if !self.pushDatabaseToFirebase(){
+                            return
+                        }
+                        
                         let alert = UIAlertController(title: "Sign Up Success", message: "Login Now", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Login", style: .cancel, handler: { (UIAlertAction) in
                             alert.dismiss(animated: true, completion: nil)
@@ -295,6 +306,36 @@ class RegisterViewController: UIViewController {
 
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
+    }
+    
+    func pushDatabaseToFirebase() -> Bool{
+        if ProfileUtils.listProfile.count > 0{
+            for item in ProfileUtils.listProfile{
+                
+                if item.ID == Auth.auth().currentUser?.uid{
+                    return true
+                }
+                
+            }
+            let url: String = Auth.auth().currentUser?.photoURL?.absoluteString  ?? ""
+            let profile = ProfileUser(id: Auth.auth().currentUser?.uid ?? "", name: Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.email ?? "", img: url, des: "anh duc dep trai vai ", email: Auth.auth().currentUser?.email ?? "", ns: "", gioitinh: "", phone: "")
+            ProfileUtils.installProfile(profile: profile)
+        }else{
+            
+            let alert = UIAlertController(title: "Warning!", message: "Sign Up Fail", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: { (UIAlertAction) in
+                ProfileUtils.getProfile()
+                alert.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            self.removeSpinner()
+            return false
+            
+        }
+        
+        return true
+        
     }
     
 }

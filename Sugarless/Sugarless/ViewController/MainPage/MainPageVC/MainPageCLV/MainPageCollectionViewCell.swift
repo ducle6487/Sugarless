@@ -17,6 +17,15 @@ class MainPageCollectionViewCell: UICollectionViewCell, sentDataToUI{
             bestSellerCLV.collectionView.reloadData()
             FavouriteCLV.collectionView.reloadData()
             RecommendCLV.collectionView.reloadData()
+            
+            count = count + 1
+            print(count)
+            if count == 3{
+                
+                print(count)
+                MainPage!.removeSpinner()
+            }
+            
         }
     }
     
@@ -24,6 +33,7 @@ class MainPageCollectionViewCell: UICollectionViewCell, sentDataToUI{
     
     var monAnUtils = MonAnUtils()
     
+    var count = 0
     
     let screenHeight = UIScreen.main.bounds.height
     var MainPage: MainPageViewController?

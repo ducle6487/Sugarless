@@ -12,8 +12,12 @@ import GoogleSignIn
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
+    
+    var window = UIWindow()
 
     // MARK: - Variable
+    
+    var mainVC = UITabBarController()
     
     var emailLB = UILabel()
     var passLB = UILabel()
@@ -57,6 +61,8 @@ class LoginViewController: UIViewController {
         
         setupUI()
         
+        
+        
         view.backgroundColor = UIColor.rgb(red: 252, green: 252, blue: 252, a: 1)
         self.hideKeyboardWhenTappedAround()
         
@@ -68,27 +74,27 @@ class LoginViewController: UIViewController {
     // MARK: - login Facebook funtion
     
     
-    func loginButton(_ loginButton: FBLoginButton!, didCompleteWith result: LoginManagerLoginResult!, error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-        return
-        }
-        if( AccessToken.current != nil ){
-            let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-            Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
-                if let error = error {
-                    print("Facebook authentication with Firebase error: ", error)
-                    return
-                }
-            print("Login success!")
-                self.dismiss(animated: true, completion: nil)
-                
-            }
-        }
-    }
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton!) {
-        print("Logged out")
-    }
+//    func loginButton(_ loginButton: FBLoginButton!, didCompleteWith result: LoginManagerLoginResult!, error: Error!) {
+//        if let error = error {
+//            print(error.localizedDescription)
+//        return
+//        }
+//        if( AccessToken.current != nil ){
+//            let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+//            Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+//                if let error = error {
+//                    print("Facebook authentication with Firebase error: ", error)
+//                    return
+//                }
+//            print("Login success!")
+//                self.dismiss(animated: true, completion: nil)
+//
+//            }
+//        }
+//    }
+//    func loginButtonDidLogOut(_ loginButton: FBLoginButton!) {
+//        print("Logged out")
+//    }
     
     // MARK: - User Interface
     
@@ -316,8 +322,12 @@ class LoginViewController: UIViewController {
                         print("Facebook authentication with Firebase error: ", error)
                         return
                     }
-                print("Login success!")
-                    self!.dismiss(animated: true, completion: nil)
+                    print("Login success!")
+                    let url: String = Auth.auth().currentUser?.photoURL?.absoluteString  ?? ""
+                    let profile = ProfileUser(id: Auth.auth().currentUser?.uid ?? "", name: Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.email ?? "", img: url, des: "anh duc dep trai vai ", email: Auth.auth().currentUser?.email ?? "", ns: "", gioitinh: "", phone: "")
+                    ProfileUtils.installProfile(profile: profile)
+                    
+                    self!.loadTabBarWhenLogedIn()
                     
                 }
             }
@@ -383,7 +393,7 @@ class LoginViewController: UIViewController {
                     mainpageVC.modalPresentationStyle = .fullScreen
                     self?.removeSpinner()
                     UserDefaults.standard.setValue(true, forKey: "login")
-                    self!.present(mainpageVC, animated: true, completion: nil)
+                    self!.loadTabBarWhenLogedIn()
                     
                 }else{
                     //login fail
@@ -402,7 +412,45 @@ class LoginViewController: UIViewController {
     
     
     
-    ////sua code
+    func loadTabBarWhenLogedIn(){
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let vc = UITabBarController()
+        let item1 = UITabBarItem()
+        item1.title = "Shop"
+        item1.image = UIImage(named: "shop")
+        let mainVC = MainPageViewController()
+        mainVC.rootVC = vc
+        let mainPageVC = UINavigationController(rootViewController: mainVC)
+        mainPageVC.tabBarItem = item1
+        
+        let item2 = UITabBarItem()
+        item2.title = "Explore"
+        item2.image = UIImage(named: "search")
+        let typeProductVC = TypeProductViewController()
+        typeProductVC.tabBarItem = item2
+        
+        let item3 = UITabBarItem()
+        item3.title = "Cart"
+        item3.image = UIImage(named: "cart")
+        let cart = GioHangViewController()
+        cart.tabBarItem = item3
+        
+        
+        let item4 = UITabBarItem()
+        item4.image = UIImage(named: "account")
+        item4.title = "Account"
+        let account = AccountViewController()
+        account.tabBarItem = item4
+        
+        
+        vc.viewControllers = [mainPageVC,typeProductVC,cart,account]
+        
+        
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+    }
+   
 
 }
 

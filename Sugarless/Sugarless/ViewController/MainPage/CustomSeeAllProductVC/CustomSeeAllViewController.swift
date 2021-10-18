@@ -18,10 +18,10 @@ class CustomSeeAllViewController: UIViewController {
     
     var navTitle : String?
     
-    lazy var bestSellerCLV : CustomAllProductCollectionView = {
+    lazy var collectionView : CustomAllProductCollectionView = {
         
         let vc = CustomAllProductCollectionView()
-        vc.seeAllVC = self
+        vc.prevVC = self
         vc.listMonAn = listMonAn
         
         return vc
@@ -46,17 +46,19 @@ class CustomSeeAllViewController: UIViewController {
         
         self.navigationItem.title = navTitle
         
-        bestSeller()
+        setupCollectionView()
+        
+        
         
     }
     
     
     // MARK: - Setup UI
     
-    func bestSeller(){
+    func setupCollectionView(){
         
-        self.view.addSubview(bestSellerCLV)
-        bestSellerCLV.snp.makeConstraints { (make) in
+        self.view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { (make) in
             make.leading.trailing.bottom.top.equalToSuperview()
         }
         

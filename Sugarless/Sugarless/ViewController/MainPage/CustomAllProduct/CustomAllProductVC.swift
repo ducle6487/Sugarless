@@ -13,7 +13,8 @@ class CustomAllProductCollectionView: UIView, UICollectionViewDelegateFlowLayout
     
     var listMonAn = [MonAn]()
     
-    var seeAllVC : CustomSeeAllViewController?
+    var prevVC : UIViewController?
+    
     
     
     var cellID = "AllProductCellID"
@@ -42,7 +43,7 @@ class CustomAllProductCollectionView: UIView, UICollectionViewDelegateFlowLayout
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        collectionView.register(CustomAllProductCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.register(CustomMainPageCellCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         
         
         
@@ -52,6 +53,8 @@ class CustomAllProductCollectionView: UIView, UICollectionViewDelegateFlowLayout
             make.leading.equalToSuperview().offset(screenWidth / 21)
             make.trailing.equalToSuperview().offset(-(screenWidth / 21))
         }
+        
+        
         
     }
     
@@ -67,15 +70,13 @@ extension CustomAllProductCollectionView: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CustomAllProductCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CustomMainPageCellCollectionViewCell
         
         cell.layer.cornerRadius = 20
         cell.layer.borderWidth = 0.75
         cell.layer.borderColor = UIColor.gray.cgColor
-        cell.name = listMonAn[indexPath.item].name
-        cell.price = listMonAn[indexPath.item].price
-        cell.image = "test"
-        cell.setupView()
+        cell.productImg.image = nil
+        cell.setupView(image: listMonAn[indexPath.item].id ?? "", name: listMonAn[indexPath.item].name ?? "", price: listMonAn[indexPath.item].price ?? "")
         return cell
     }
     
@@ -84,10 +85,14 @@ extension CustomAllProductCollectionView: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("press item")
-        let vc = DescriptionProductViewController()
+        
+        let vc = DetailProductViewController()
         vc.modalPresentationStyle = .fullScreen
-        seeAllVC?.present(vc, animated: true, completion: nil)
+        vc.name = listMonAn[indexPath.item].name ?? ""
+        vc.image = listMonAn[indexPath.item].id ?? ""
+        vc.des = listMonAn[indexPath.item].description ?? ""
+        vc.price = listMonAn[indexPath.item].price ?? ""
+        prevVC?.present(vc, animated: true, completion: nil)
     }
     
     

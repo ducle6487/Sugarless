@@ -32,7 +32,7 @@ class CustomMainPageCellCollectionView: UIView, UICollectionViewDelegateFlowLayo
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        print("mainpagecell")
+        
         
         collectionView.register(CustomMainPageCellCollectionViewCell.self, forCellWithReuseIdentifier: besSellerCellID)
         addSubview(collectionView)
